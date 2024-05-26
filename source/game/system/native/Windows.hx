@@ -14,8 +14,10 @@ package game.system.native;
 </target>
 ')
 
+#if desktop
 @:cppFileCode('
 #include <iostream>
+#include <windows.h>
 #include <psapi.h>
 #include <dwmapi.h>
 #include <Shlobj.h>
@@ -45,6 +47,7 @@ float GetCPULoad()
    return GetSystemTimes(&idleTime, &kernelTime, &userTime) ? CalculateCPULoad(FileTimeToInt64(idleTime), FileTimeToInt64(kernelTime)+FileTimeToInt64(userTime))*100.0f : -1.0f;
 }
 ')
+#end
 class Windows
 {
     @:functionCode('
