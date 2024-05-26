@@ -2866,12 +2866,14 @@ class PlayState extends MusicBeatState
 
 		scoreTxt.screenCenter(X);
 
+		#if desktop
 		// RPC Related stuff
 		daRPCInfo = '${config.scoreText}: ' + songScore + " | " + '${config.missesText}: ' + misses + ' | ' + '${config.accuracyText}: '
 			+ RatingsCheck.fixFloat(accuracy, 2) + "% (" + ratingText + ')';
 		if (songStarted)
 			DiscordClient.changePresence(detailsText, (CDevConfig.saveData.botplay ? "Botplay" : daRPCInfo), iconRPC, true,
 				songLength - Conductor.songPosition);
+		#end
 
 		// ScoreTxt's background
 		bgScore.setGraphicSize(Std.int(scoreTxt.width + 16), Std.int(scoreTxt.height + 3));
