@@ -50,6 +50,7 @@ float GetCPULoad()
 #end
 class Windows
 {
+#if desktop
     @:functionCode('
         int darkMode = enable ? 1 : 0;
         
@@ -61,6 +62,7 @@ class Windows
             DwmSetWindowAttribute(window, 20, &darkMode, sizeof(darkMode));
         }
     ')
+#end
     public static function setWindowDarkMode(title:String, enable:Bool) {}
 
 	@:functionCode('
@@ -68,6 +70,7 @@ class Windows
     ')
 	public static function setDPIAware(){}
 
+#if desktop
     @:functionCode('
         ULARGE_INTEGER freeBytesAvailableToCaller;
         ULARGE_INTEGER totalNumberOfBytes;
@@ -83,6 +86,7 @@ class Windows
             printf("oh no it failed, %d\\n", errorCode);
         }
     ')
+#end
     public static function getCurrentDriveSize():Float {
         return 0;
     }
