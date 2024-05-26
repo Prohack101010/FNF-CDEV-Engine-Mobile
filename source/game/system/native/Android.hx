@@ -23,11 +23,6 @@ using StringTools;
  */
 class Android
 {
-    public static var requiredPermissions:Array<String> = #if android [
-        WRITE_EXTERNAL_STORAGE, 
-        READ_EXTERNAL_STORAGE
-    ]; #else []; #end
-
 	/**
 	 * Initialize the Android Class, such as asking for Storage Permission.
 	 */
