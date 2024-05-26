@@ -106,7 +106,7 @@ class Windows
     @:functionCode('
         return GetCPULoad();
     ')
-    #e d
+    #end
     public static function getCurrentCPUUsage():Float {
         return 0.0;
     }
