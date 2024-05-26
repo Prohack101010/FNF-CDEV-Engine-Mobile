@@ -36,7 +36,6 @@ class Android
 		#if android
         var allAccepted:Bool = true;
         var goToSettings:Bool = false;
-        for (perms in requiredPermissions){
             if (!Permissions.getGrantedPermissions().contains('android.permission.READ_EXTERNAL_STORAGE') && !Permissions.getGrantedPermissions().contains('android.permission.WRITE_EXTERNAL_STORAGE')){
                 if (VERSION.SDK_INT >= VERSION_CODES.M){
                     Permissions.requestPermission('READ_EXTERNAL_STORAGE');
@@ -50,7 +49,6 @@ class Android
                     allAccepted = false;
                 }
             }
-        }
         if (!allAccepted){
             var strShit:String = (!goToSettings ? 
                 "Please grant all of the permissions first, CDEV Engine requires Read & Write permission to your storage." :
