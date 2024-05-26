@@ -24,8 +24,8 @@ using StringTools;
 class Android
 {
     public static var requiredPermissions:Array<String> = #if android [
-        Permissions.WRITE_EXTERNAL_STORAGE, 
-        Permissions.READ_EXTERNAL_STORAGE
+        WRITE_EXTERNAL_STORAGE, 
+        READ_EXTERNAL_STORAGE
     ]; #else []; #end
 
 	/**
@@ -37,11 +37,12 @@ class Android
         var allAccepted:Bool = true;
         var goToSettings:Bool = false;
         for (perms in requiredPermissions){
-            if (!Permissions.getGrantedPermissions().contains(perms)){
+            if (!Permissions.getGrantedPermissions().contains('android.permission.READ_EXTERNAL_STORAGE') && !Permissions.getGrantedPermissions().contains('android.permission.WRITE_EXTERNAL_STORAGE')){
                 if (VERSION.SDK_INT >= VERSION_CODES.M){
-                    Permissions.requestPermission(perms);
+                    Permissions.requestPermission('READ_EXTERNAL_STORAGE');
+		    Permissions.requestPermission('WRITE_EXTERNAL_STORAGE');
 
-                    if (!Permissions.getGrantedPermissions().contains(perms)){
+                    if (!Permissions.getGrantedPermissions().contains('android.permission.READ_EXTERNAL_STORAGE') && !Permissions.getGrantedPermissions().contains('android.permission.WRITE_EXTERNAL_STORAGE')){
                         allAccepted = false;
                     }
                 } else{
