@@ -91,18 +91,22 @@ class Windows
         return 0;
     }
 
+    #if desktop
     @:functionCode('
         PROCESS_MEMORY_COUNTERS info;
         GetProcessMemoryInfo(GetCurrentProcess(), &info, sizeof(info));
         return (size_t)info.WorkingSetSize;
     ')
+    #end
     public static function getCurrentUsedMemory():Float{
         return 0.0;
     }
 
+    #if desktop
     @:functionCode('
         return GetCPULoad();
     ')
+    #e d
     public static function getCurrentCPUUsage():Float {
         return 0.0;
     }
