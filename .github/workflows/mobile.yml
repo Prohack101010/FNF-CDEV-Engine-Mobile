@@ -1,0 +1,45 @@
+name: Main
+on: workflow_dispatch
+jobs:
+  Android:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@main
+        id: setup-ndk
+        with:
+          ndk-version: r21e
+      - name: Setup Java JDK
+        uses: actions/setup-java@main
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.4
+      - name: Install Libraries
+        run: |
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
+      - name: Configure Android
+        run: |
+          haxelib run lime config ANDROID_SDK $ANDROID_HOME
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+      - name: Free Disk Space
+        run: sudo swapoff -a && sudo rm -f /swapfile && sudo apt clean && docker rmi $(docker image ls -aq) && df -h
+      - name: Compile
+        run: haxelib run lime build android -armv7
+      - name: Upload Artifact
+        if: ${{ success() }}
+        uses: actions/upload-artifact@main
+        with:
+          name: androidBuild
+          path: export/*/android/bin/app/build/outputs/apk/*/*.apk
+          if-no-files-found: error
