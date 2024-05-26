@@ -65,9 +65,11 @@ class Windows
 #end
     public static function setWindowDarkMode(title:String, enable:Bool) {}
 
+#if desktop
 	@:functionCode('
         SetProcessDPIAware();
     ')
+#end
 	public static function setDPIAware(){}
 
 #if desktop
