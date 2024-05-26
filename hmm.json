@@ -37,6 +37,11 @@
       "version": null
     },
     {
+      "name": "flxanimate",
+      "type": "haxelib",
+      "version": null
+    },
+    {
       "name": "extension-androidtools",
       "type": "git",
       "dir": null,
