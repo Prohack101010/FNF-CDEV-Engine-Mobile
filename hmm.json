@@ -4,31 +4,16 @@
       "name": "lime",
       "type": "git",
       "dir": null,
-      "ref": "develop",
+      "ref": "main",
       "url": "https://github.com/mcagabe19-stuff/lime"
     },
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": null
+      "version": "9.2.2"
     },
     {
       "name": "flixel",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "flixel-addons",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "flixel-tools",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "flixel-ui",
       "type": "haxelib",
       "version": null
     },
@@ -37,32 +22,14 @@
       "type": "git",
       "dir": null,
       "ref": "master",
-      "url": "https://github.com/mcagabe19-stuff/hxcpp" 
-    },
-    {
-      "name": "hxCodec",
-      "type": "haxelib",
-      "version": "2.6.0"
+      "url": "https://github.com/mcagabe19-stuff/hxcpp"
     },
     {
       "name": "hxvlc",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hScript",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hxcpp-debug-server",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "tjson",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/MAJigsaw77/hxvlc"
     },
     {
       "name": "hxdiscord_rpc",
@@ -70,30 +37,11 @@
       "version": null
     },
     {
-      "name": "hxluajit",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "linc_luajit",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/superpowers04/linc_luajit.git"
-    },
-    {
-      "name": "flxanimate",
-      "type": "git",
-      "dir": null,
-      "ref": "dev",
-      "url": "https://github.com/ShadowMario/flxanimate.git"
-    },
-    {
       "name": "extension-androidtools",
       "type": "git",
       "dir": null,
-      "ref": "SAF",
-      "url": "https://github.com/MobilePorting/extension-androidtools.git"
+      "ref": "main",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools.git"
     }
   ]
-    }
+}
