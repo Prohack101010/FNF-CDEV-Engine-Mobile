@@ -41,6 +41,7 @@ jobs:
           haxelib install flixel-addons --quiet
           haxelib install hscript --quiet
           haxelib install hxCodec
+          haxelib git linc_luajit https://github.com/mcagabe19-stuff/linc_luajit-rewriten --quiet
           haxelib install newgrounds 1.4.0 --quiet
           haxelib git faxe https://github.com/uhrobots/faxe --quiet
           haxelib git polymod https://github.com/larsiusprime/polymod.git --quiet
